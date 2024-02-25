@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% crispy form %}
+{{form|crispy}}
+{% block title%}
+Booking
+{% endblock %}
+{% block content%}
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Booking Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<h2>Doctor Booking Form</h2>
+<form action="#" method="post">
+    {% csrf_token %}
+    <label for="fullname"><h5>Full Name</h5></label>
+    <input type="text" id="fullname" name="fullname" required>
+
+    <label for="email"><h5>Email</h5></label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone"><h5>Phone</h5></label>
+    <input type="text" id="phone" name="phone" required>
+
+    <label for="doctor"><h5>Doctor</h5></label>
+    <select id="doctor" name="doctor" required>
+        <option value="">Select a doctor</option>
+        <option value="Dr. Arun">Dr. Arun</option>
+        <option value="Dr. Sam">Dr. Sam</option>
+        <option value="Dr. Reena">Dr. Reena</option>
+    </select>
+
+    <label for="date">Preferred Date</label>
+    <input type="date" id="date" name="date" required>
+    <br>
+    <br>
+    <label for="time">Preferred Time</label>
+    <input type="time" id="time" name="time" required>
+    <br>
+    <br>
+    <br>
+    <label for="message">Additional Message</label>
+    <textarea id="message" name="message" rows="4" style="height: 254px;" ></textarea>
+
+    <input type="submit" value="Book Appointment">
+</form>
+
+
+
+
+</form>
+</body>
+</html>
+
+{% endblock %}
